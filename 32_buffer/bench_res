@@ -1,0 +1,11 @@
+BenchmarkStart-16           7315            706906 ns/op          487866 B/op      32987 allocs/op
+BenchmarkStart-16           8398            710329 ns/op          487865 B/op      32987 allocs/op
+BenchmarkStart-16           8342            705416 ns/op          487865 B/op      32987 allocs/op
+BenchmarkStart-16           8594            710261 ns/op          487865 B/op      32987 allocs/op
+BenchmarkStart-16           7875            724465 ns/op          487865 B/op      32987 allocs/op
+
+BenchmarkStart-16           7653            664999 ns/op               0 B/op          0 allocs/op
+BenchmarkStart-16           8084            663561 ns/op               0 B/op          0 allocs/op
+BenchmarkStart-16           8763            666142 ns/op               0 B/op          0 allocs/op
+BenchmarkStart-16           8740            663701 ns/op               0 B/op          0 allocs/op
+BenchmarkStart-16           8673            664024 ns/op               0 B/op          0 allocs/op

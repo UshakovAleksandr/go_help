@@ -1,0 +1,11 @@
+goos: darwin
+goarch: amd64
+pkg: 25_bench
+cpu: Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz
+BenchmarkToCompare-16    	   36093	     33302 ns/op	  262144 B/op	       1 allocs/op
+BenchmarkToCompare-16    	   36133	     33275 ns/op	  262144 B/op	       1 allocs/op
+BenchmarkToCompare-16    	   35569	     33871 ns/op	  262144 B/op	       1 allocs/op
+BenchmarkToCompare-16    	   35798	     33871 ns/op	  262144 B/op	       1 allocs/op
+BenchmarkToCompare-16    	   35194	     33968 ns/op	  262144 B/op	       1 allocs/op
+PASS
+ok  	25_bench	7.813s

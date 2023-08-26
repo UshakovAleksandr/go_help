@@ -1,0 +1,192 @@
+components:
+  schemas:
+    Request:
+      additionalProperties: false
+      properties:
+        SAP_Flag:
+          format: double
+          type: number
+        accounts:
+          items:
+            additionalProperties: false
+            properties:
+              AccountNo:
+                type: string
+              SelfEmployedCardFlag:
+                format: double
+                type: number
+              TotalStatementRecords:
+                format: double
+                type: number
+              tranz:
+                items:
+                  additionalProperties: false
+                  properties:
+                    StatementAmount:
+                      format: double
+                      type: number
+                    StatementDate:
+                      format: date-time
+                      type: string
+                    StatementTypeCode:
+                      format: double
+                      type: number
+                  required:
+                    - StatementAmount
+                    - StatementDate
+                    - StatementTypeCode
+                  type: object
+                type: array
+            required:
+              - SelfEmployedCardFlag
+              - TotalStatementRecords
+              - AccountNo
+              - tranz
+            type: object
+          type: array
+        application_date:
+          type: string
+        version:
+          type: string
+      required:
+        - application_date
+        - version
+        - SAP_Flag
+        - accounts
+      type: object
+    Response:
+      additionalProperties: false
+      properties:
+        accounts:
+          items:
+            additionalProperties: false
+            properties:
+              AccountNo:
+                type: string
+              AccountType:
+                format: int32
+                type: integer
+              results:
+                items:
+                  additionalProperties: false
+                  properties:
+                    result:
+                      additionalProperties: false
+                      properties:
+                        AVG_COD_other_income:
+                          format: double
+                          type: number
+                        AVG_COD_other_income_year:
+                          format: double
+                          type: number
+                        AVG_COD_pension_income:
+                          format: double
+                          type: number
+                        AVG_COD_pension_income_year:
+                          format: double
+                          type: number
+                        AVG_COD_salary_income:
+                          format: double
+                          type: number
+                        AVG_COD_salary_income_year:
+                          format: double
+                          type: number
+                        AVG_COD_selfemployed_income:
+                          format: double
+                          type: number
+                        AVG_COD_selfemployed_income_year:
+                          format: double
+                          type: number
+                        StatementTotalsByType:
+                          items:
+                            format: double
+                            type: number
+                          type: array
+                        StatementTotalsByType_year:
+                          items:
+                            format: double
+                            type: number
+                          type: array
+                        StatementTotalsByTypePeriods:
+                          items:
+                            type: string
+                          type: array
+                        StatementTotalsByTypePeriods_year:
+                          items:
+                            type: string
+                          type: array
+                        StatementTotalsCodeTypes:
+                          items:
+                            format: int32
+                            type: integer
+                          type: array
+                        StatementTotalsCodeTypes_year:
+                          items:
+                            format: int32
+                            type: integer
+                          type: array
+                      required:
+                        - AVG_COD_other_income
+                        - AVG_COD_other_income_year
+                        - AVG_COD_pension_income
+                        - AVG_COD_pension_income_year
+                        - AVG_COD_salary_income
+                        - AVG_COD_salary_income_year
+                        - AVG_COD_selfemployed_income
+                        - AVG_COD_selfemployed_income_year
+                        - StatementTotalsByType
+                        - StatementTotalsByType_year
+                        - StatementTotalsByTypePeriods
+                        - StatementTotalsByTypePeriods_year
+                        - StatementTotalsCodeTypes
+                        - StatementTotalsCodeTypes_year
+                      type: object
+                  required:
+                    - result
+                  type: object
+                type: array
+            required:
+              - AccountNo
+              - AccountType
+              - results
+            type: object
+          type: array
+        version:
+          type: string
+      required:
+        - version
+        - accounts
+      type: object
+info:
+  title: Logic swagger
+  version: 1.0.0
+openapi: 3.0.3
+paths:
+  /execute:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Success request
+      summary: Get logic handler
+      tags:
+        - API
+  /logic:
+    get:
+      responses:
+        "200":
+          description: Success request
+        "400":
+          description: Failed - Bad request
+      summary: Get logic handler
+      tags:
+        - API

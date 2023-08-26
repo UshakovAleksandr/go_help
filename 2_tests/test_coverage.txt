@@ -1,0 +1,19 @@
+Все тесты в пакете и подпакетах:
+go test ./...
+go test ./pkg1/...
+go test github.com/otus/superapp/...
+
+Конкретные тесты по имени:
+go test -run TestFoo
+
+По тегам ( //go:build integration ):
+go test -tags=integration
+
+
+Coverage:
+go test -cover — посмотреть покрытие
+go test -coverprofile=c.out — записать отчет о покрытии
+go tool cover -html=c.out — посмотреть отчет о покрытии
+
+
+golangci-lint run .

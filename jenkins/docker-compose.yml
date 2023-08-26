@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:lts
+    restart: always
+    ports:
+      - "8888:8080"
+    volumes:
+      - jenkins_data:/var/jenkins_data
+      - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+  
+  # nexus:
+  #   container_name: nexus
+  #   image: sonatype/nexus3:3.38.1
+  #   restart: always
+  #   ports:
+  #     - "8889:8081"
+  #     - "8085:8085"
+  #   volumes:
+  #     - nexus_data:/nexus-data
+    
+volumes:
+  jenkins_data:
+    name: jenkins_data
+  # nexus_data:
+  #   name: nexus_data
